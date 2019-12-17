@@ -24,11 +24,11 @@ The purpose of this script is to automate the creation of dashboards and their r
     apiVersion: v1
     kind: Secret
     metadata:
-    name: customer-secret
-    namespace: project name here.
+      name: customer-secret
+      namespace: grafana-automation
     type: Opaque
     stringData:
-    customer_clusters.yaml: |-
+      customer_clusters.yaml: |-
         ---
         Customers:
         CustomerA:
