@@ -31,21 +31,21 @@ The purpose of this script is to automate the creation of dashboards and their r
       customer_clusters.yaml: |-
         ---
         Customers:
-        CustomerA:
-        - ClusterDataSourceUrl: Cluster1.prometheus.com
+          CustomerA:
+          - ClusterDataSourceUrl: Cluster1.prometheus.com
             BasicAuthUsername: xxxxx
             BasicAuthPassword: xxxxx
-        - ClusterDataSourceUrl: Cluster2.prometheus.com
+          - ClusterDataSourceUrl: Cluster2.prometheus.com
             BasicAuthUsername: xxxxx
             BasicAuthPassword: xxxxx
-        CustomerB:
-        - ClusterDataSourceUrl: Cluster3.prometheus.com
+          CustomerB:
+          - ClusterDataSourceUrl: Cluster3.prometheus.com
             BasicAuthUsername: xxxxx
             BasicAuthPassword: xxxxx
-        - ClusterDataSourceUrl: Cluster4.prometheus.com
+          - ClusterDataSourceUrl: Cluster4.prometheus.com
             BasicAuthUsername: xxxxx
             BasicAuthPassword: xxxxx
-        - ClusterDataSourceUrl: Cluster5.prometheus.com
+          - ClusterDataSourceUrl: Cluster5.prometheus.com
             BasicAuthUsername: xxxxx
             BasicAuthPassword: xxxxx
     ```
