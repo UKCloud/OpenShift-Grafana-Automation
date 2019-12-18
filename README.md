@@ -53,8 +53,8 @@ The purpose of this script is to automate the creation of dashboards and their r
 4. Deploy this app in OpenShift using the following command:
 
     ```bash
-    oc get secret customer-secret -o "jsonpath={.data['customer_clusters\.yaml']}" | base64 --decode | oc new-app https://github.com/UKCloud/openshift-automation-grafana.git \
-    -e OPENSHIFT_SECRET=- \
-    -e GRAFANA_API_KEY="API Key here." \
-    -e GRAFANA_HOST="https://grafanahost.com"
+    Secret=$(oc get secret customer-secret -o "jsonpath={.data['customer_clusters\.yaml']}" | base64 --decode) && oc new-app python:3.6~https://github.com/UKCloud/openshift-automation-grafana.git \
+        -e OPENSHIFT_SECRET=$Secret \
+        -e GRAFANA_API_KEY="API key here." \
+        -e GRAFANA_HOST="https://grafanahost.com"
     ```
