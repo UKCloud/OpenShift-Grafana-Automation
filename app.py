@@ -54,8 +54,9 @@ def main():
             try:
                 # Send request to create Grafana data source.
                 resp = grafana_request(session, sub_endpoint="/api/datasources", method="POST", json=datasource)
-                sleep(1)
                 logging.debug("JSON response for data source creation: data source: {}\n JSON payload: {}".format(cluster["ClusterDataSourceUrl"], resp))
+                # Sleep for a second to avoid Grafana raising 409 conflict error.
+                sleep(1)
             except HTTPError as err:
                 logging.debug("Request to create Grafana data source failed: {}\nJSON payload: {}".format(err, datasource))
         # Create dashboard JSON using Jinja2 template engine.
