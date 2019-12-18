@@ -14,9 +14,11 @@ The purpose of this script is to automate the creation of dashboards and their r
 
 1. Have a Grafana instance deployed which has a route exposed as well as a [API key](https://grafana.com/docs/grafana/latest/http_api/auth/#create-api-token) generated.
 
-2. Create a new OpenShift project using the following command: `oc new-project grafana-automation`
+2. Ensure that the router IP of the cluster which this pod will be running in is whitelisted on the Grafana route in the destination cluster.
 
-3. Create an OpenShift secret using the following command: `oc create -f secret.yaml`
+3. Create a new OpenShift project using the following command: `oc new-project grafana-automation`
+
+4. Create an OpenShift secret using the following command: `oc create -f secret.yaml`
 
     Example secret.yaml:
 
@@ -50,7 +52,7 @@ The purpose of this script is to automate the creation of dashboards and their r
             BasicAuthPassword: xxxxx
     ```
 
-4. Deploy this app in OpenShift using the following command:
+5. Deploy this app in OpenShift using the following command:
 
     ```bash
     Secret=$(oc get secret customer-secret -o "jsonpath={.data['customer_clusters\.yaml']}" | base64 --decode) && oc new-app python:3.6~https://github.com/UKCloud/openshift-automation-grafana.git \
