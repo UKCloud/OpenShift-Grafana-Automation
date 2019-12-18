@@ -5,6 +5,7 @@ try:
     import yaml
     import logging
     from sys import stdout
+    from time import sleep
 except ImportError as err:
     raise ImportError("Failed to import required modules: {}".format(err))
 
@@ -53,6 +54,7 @@ def main():
             try:
                 # Send request to create Grafana data source.
                 resp = grafana_request(session, sub_endpoint="/api/datasources", method="POST", json=datasource)
+                sleep(1)
                 logging.debug("JSON response for data source creation: data source: {}\n JSON payload: {}".format(cluster["ClusterDataSourceUrl"], resp))
             except HTTPError as err:
                 logging.debug("Request to create Grafana data source failed: {}\nJSON payload: {}".format(err, datasource))
