@@ -72,5 +72,5 @@ def main():
 
 
 if __name__ == "__main__":
-    __version__ = "0.0.1"
+    __version__ = "0.0.2"
     main()
