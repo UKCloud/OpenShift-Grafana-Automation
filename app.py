@@ -49,10 +49,7 @@ def main():
                 "basicAuth": True,
                 "basicAuthUser": cluster["BasicAuthUsername"],
                 "basicAuthPassword": cluster["BasicAuthPassword"],
-                "isDefault": False,
-                "jsonData": {
-                    "tlsSkipVerify": True
-                }
+                "isDefault": False
             }
             try:
                 # Send request to create Grafana data source.
