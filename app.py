@@ -45,12 +45,11 @@ def main():
                 "name": name,
                 "type": "prometheus",
                 "url": cluster["ClusterDataSourceUrl"],
-                "access": "server",
+                "access": "proxy",
                 "basicAuth": True,
                 "basicAuthUser": cluster["BasicAuthUsername"],
                 "basicAuthPassword": cluster["BasicAuthPassword"],
-                "isDefault": False,
-                "tlsSkipVerify": True
+                "isDefault": False
             }
             try:
                 # Send request to create Grafana data source.
