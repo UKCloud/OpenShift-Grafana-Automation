@@ -28,7 +28,7 @@ def create_admin_template():
     """
     with open('templates/admindashboard.json', 'r') as myfile:
         data = myfile.read()
-    admin_dashboard = json.loads(data)
+    admin_dashboard = data
     return admin_dashboard
     
 
