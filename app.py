@@ -5,7 +5,7 @@
 """
 
 try:
-    from utils import get_env_vars, grafana_request, create_customer_template
+    from utils import get_env_vars, grafana_request, create_customer_template, create_admin_template
     from requests_toolbelt import sessions
     from requests import HTTPError
     import yaml
