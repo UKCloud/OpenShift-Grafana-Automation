@@ -72,8 +72,8 @@ def main():
                           f"JSON payload: {dashboard}")
     admin_dashboard = create_admin_template()
     try:
-        resp = grafana_request(session, sub_endpoint="/api/dashboards/db", method="POST", data=admin_dashboard)
-        logging.debug(f"JSON response for dashboard creation: dashboard: {customer}\n"
+        resp = grafana_request(session, sub_endpoint="/api/dashboards/import", method="POST", data=admin_dashboard)
+        logging.debug(f"JSON response for admin dashboard creation \n"
                       f"JSON payload: {resp}")
     except HTTPError as err:
         logging.debug(f"Failed to create Grafana dashboard: {err}\n"
