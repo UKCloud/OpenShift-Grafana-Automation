@@ -5,7 +5,7 @@
 """
 
 try:
-    from utils import get_env_vars, grafana_request, create_customer_template, create_admin_template
+    from utils import grafana_request, create_customer_template
     from requests_toolbelt import sessions
     from requests import HTTPError
     import yaml
@@ -86,5 +86,5 @@ def main():
 
 
 if __name__ == "__main__":
-    __version__ = "1.1.0"
+    __version__ = "1.1.1"
     main()
