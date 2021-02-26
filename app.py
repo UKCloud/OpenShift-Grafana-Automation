@@ -11,6 +11,7 @@ try:
     import yaml
     import logging
     import os
+    import glob
     from sys import stdout
     from time import sleep
 except ImportError as err:
@@ -70,17 +71,20 @@ def main():
         except HTTPError as err:
             logging.debug(f"Failed to create Grafana dashboard: {err}\n"
                           f"JSON payload: {dashboard}")
-    admin_dashboard = create_admin_template()
-    try:
-        resp = grafana_request(session, sub_endpoint="/api/dashboards/import", method="POST", data=admin_dashboard)
-        logging.debug(f"JSON response for admin dashboard creation \n"
-                      f"JSON payload: {resp}")
-    except HTTPError as err:
-        logging.debug(f"Failed to create Grafana dashboard: {err}\n"
-                      f"JSON payload: {dashboard}")
+
+    for json_file in glob.iglob(r'templates/*.json'):
+        with open(json_file, 'r') as dashboard_json_file:
+            dashboard_json = dashboard_json_file.read()
+            try:
+                resp = grafana_request(session, sub_endpoint="/api/dashboards/import", method="POST", data=dashboard_json)
+                logging.debug(f"JSON response for dashboard creation \n"
+                              f"JSON payload: {resp}")
+            except HTTPError as err:
+                logging.debug(f"Failed to create Grafana dashboard: {err}\n"
+                              f"JSON payload: {dashboard}")
     session.close()
 
 
 if __name__ == "__main__":
-    __version__ = "1.0.0"
+    __version__ = "1.1.0"
     main()

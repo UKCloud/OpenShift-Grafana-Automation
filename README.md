@@ -3,9 +3,7 @@
 Automation of the data source and dashboard creation process for OpenShift clusters.
 
 * This script is written for Python 3.6.
-
 * The Python app is deployed using OpenShift's source to image (S2i) build process.
-
 * Entrypoint for the app is [app.py](app.py)
 
 The purpose of this script is to automate the creation of dashboards and their respective data sources, for the number of OpenShift clusters which the customer has.
