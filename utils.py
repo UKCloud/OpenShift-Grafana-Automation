@@ -22,15 +22,6 @@ def create_customer_template(datasource_info: list, customer: str):
     return dashboard
 
 
-def create_admin_template():
-    """
-    Loads json file to create admin dashboard.
-    """
-    with open('templates/admindashboard.json', 'r') as myfile:
-        admin_dashboard = myfile.read()
-    return admin_dashboard
-    
-
 def get_env_vars():
     """
     Get OS environment variables for setup.
